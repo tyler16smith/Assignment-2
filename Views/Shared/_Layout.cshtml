@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <!-- Links the CSS page -->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Adding an icon -->
+    <link rel="icon" type="image/png" href="/img/world.png" sizes="32x32" />
+</head>
+<body class="body">
+    <div class="topnav">
+        <a href="/">Tyler Smith</a>
+        <a href="/">Home</a>
+        <a href="GradeCalculator">Grade Calculator</a>
+    </div>
+
+    <!-- Render the body -->
+    <div>
+        @RenderBody()
+    </div>
+    <br /><br /><br /><br />
+
+    <!-- Link JavaScript -->
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/calcGrade.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // Razor page
+    ViewBag.Title = "Grade Calculator!";
+    ViewBag.Header = "The Grade Calculator-inator!";
+}
+
+@model Tyler_Assignment1.Models.GradeCalculatorModel
+
+<body>
+    <!-- Calculates the final grade -->
+    <h3>@ViewBag.Header</h3>
+    <p>Instructions: Please enter in your hopeful grade percentages for each of the following categories:</p>
+    <form asp-action="GradeCalculator" method="post">
+        <label>Assignments</label>
+        <input id="Assignments" asp-for="Assignments" /><br />
+        <label>Group Projects</label>
+        <input id="Groupprojects" asp-for="Groupprojects" /><br />
+        <label>Quizzes</label>
+        <input id="Quizzes" asp-for="Quizzes" /><br />
+        <label>Exams</label>
+        <input id="Exams" asp-for="Exams" /><br />
+        <label>INTEX</label>
+        <input id="Intex" asp-for="Intex" /><br /><br />
+        
+        <!-- Button to calculate the grade -->
+        <button type="button" class="btn" id="submitBtn">Calculate</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+
+</body>

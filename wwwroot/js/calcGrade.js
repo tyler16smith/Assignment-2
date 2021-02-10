@@ -1,13 +1,15 @@
-﻿
-function calcGrade() {
-    var assignments = document.getElementById("assignments").value * 0.50;
-    var groupprojects = document.getElementById("groupprojects").value * 0.10;
-    var quizzes = document.getElementById("quizzes").value * 0.10;
-    var exams = document.getElementById("exams").value * 0.20;
-    var intex = document.getElementById("intex").value * 0.10;
+﻿// Calculate the final grade
+$("#submitBtn").click(function () {
+    
+    // Collect inputs & calculate weights
+    var assignments = $("#Assignments").val() * 0.50;
+    var groupprojects = $("#Groupprojects").val() * 0.10;
+    var quizzes = $("#Quizzes").val() * 0.10;
+    var exams = $("#Exams").val() * 0.20;
+    var intex = $("#Intex").val() * 0.10;
 
     var finalGrade = assignments + groupprojects + quizzes + exams + intex;
-    finalGrade = finalGrade.toFixed(2)
+    finalGrade = finalGrade.toFixed(2);
 
     if (finalGrade >= 90) {
         letterGrade = "A"
@@ -28,5 +30,6 @@ function calcGrade() {
         letterGrade = "E"
     }
 
+    // Alert the final grade
     alert("Final grade: " + finalGrade + "% (" + letterGrade + ")");
-}
+})

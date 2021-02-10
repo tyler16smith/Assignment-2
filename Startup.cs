@@ -16,13 +16,34 @@ namespace Tyler_Assignment1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews(); // enables line 34 to work
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseDefaultFiles();
+            if (env.IsEnvironment("Development"))
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                // Error page
+            }
+
+            app.UseNodeModules();
             app.UseStaticFiles();
+
+            // find individual views and controllers
+            app.UseRouting();
+
+            // for routing
+            app.UseEndpoints(cfg => 
+            {
+                cfg.MapControllerRoute("Default",
+                    "{controller}/{action}/{id?}",
+                    new { controller = "Home", action = "index" });
+            });
         }
     }
 }
